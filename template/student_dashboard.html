@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <!-- Dashboard Container -->
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full animate-fade-in">
+        <!-- Profile Picture -->
+        <div class="flex flex-col items-center">
+            <div class="w-32 h-32 rounded-full overflow-hidden mb-4 shadow-lg transform hover:scale-105 transition duration-500 ease-in-out">
+                <img src="{{ student.profile_picture.url }}" alt="Profile Picture" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-2xl font-semibold text-gray-800 mb-1">Welcome, {{ student.first_name }} {{ student.last_name }}</h1>
+            <p class="text-gray-500">{{ student.department.name }}</p>
+        </div>
+
+        <!-- Details Section -->
+        <div class="mt-6 space-y-4">
+            <div class="flex items-center">
+                <span class="w-24 font-medium text-gray-600">Email:</span>
+                <p class="text-gray-700">{{ student.email }}</p>
+            </div>
+            <div class="flex items-center">
+                <span class="w-24 font-medium text-gray-600">Roll Number:</span>
+                <p class="text-gray-700">{{ student.roll_number }}</p>
+            </div>
+            <div class="flex items-center">
+                <span class="w-24 font-medium text-gray-600">DOB:</span>
+                <p class="text-gray-700">{{ student.date_of_birth }}</p>
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="mt-8 flex justify-center space-x-4">
+            <a href="{% url 'student_create' %}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg transform hover:scale-105 transition duration-300">Edit Profile</a>
+            <a href="#" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md shadow-lg transform hover:scale-105 transition duration-300">Logout</a>
+        </div>
+    </div>
+
+    <!-- Animation Classes -->
+    <style>
+        /* Fade-in animation for the dashboard container */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>

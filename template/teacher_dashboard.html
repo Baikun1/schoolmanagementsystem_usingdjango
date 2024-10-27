@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ teacher.first_name }} {{ teacher.last_name }}</h1>
+    <img src="{{ teacher.profile_picture.url }}" alt="Profile Picture">
+    <p>Email: {{ teacher.email }}</p>
+    <p>Phone: {{ teacher.phone_number }}</p>
+    <p>Department: {{ teacher.department.name }}</p>
+    <p>Date Joined: {{ teacher.date_joined }}</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School management system</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>student</li>
+            <li>teacher</li>
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <h1>Hello this is school management system </h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, qui fugiat pariatur, ducimus quibusdam maiores atque assumenda quidem nostrum vitae quae alias impedit.
+        </p>
+
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </main>
+</body>
+</html>
